@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#176b87">
+  <title>EduWorld | منصة الصف الثالث الإعدادي</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="EduWorld الرئيسية">
+        <span class="brand-mark">E</span>
+        <span><b>EduWorld</b><small>نتعلم وننجح معًا</small></span>
+      </a>
+      <nav class="top-actions">
+        <button class="icon-btn" id="themeBtn" title="تغيير المظهر" aria-label="تغيير المظهر">☼</button>
+        <button class="profile-chip" id="profileBtn"><span class="avatar">ط</span><span id="userNameTop">طالب جديد</span></button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-copy">
+          <span class="eyebrow">الصف الثالث الإعدادي · الترم الأول 2026</span>
+          <h1>رحلتك للتفوق<br><em>تبدأ من هنا.</em></h1>
+          <p>مكان واحد يجمع شرح العلوم والدراسات الاجتماعية، والتدريبات، والاختبارات، ومنافسة الطلاب.</p>
+          <div class="hero-actions">
+            <button class="primary-btn" data-scroll="subjects">ابدأ المذاكرة <span>←</span></button>
+            <button class="soft-btn" data-scroll="leaderboard">شاهد ترتيب الطلاب</button>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="book-emoji">📚</div><div class="float-card card-science">🧪 العلوم</div>
+          <div class="float-card card-history">🗺️ الدراسات</div><div class="sparkle">✦</div>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="إحصائيات الطالب">
+        <article class="stat-card"><span class="stat-icon blue">📘</span><div><small>الدروس المكتملة</small><strong id="completedCount">0</strong></div></article>
+        <article class="stat-card"><span class="stat-icon orange">⭐</span><div><small>مجموع نقاطك</small><strong id="pointsCount">0</strong></div></article>
+        <article class="stat-card"><span class="stat-icon green">🎯</span><div><small>الاختبارات المنجزة</small><strong id="testsCount">0</strong></div></article>
+        <article class="stat-card"><span class="stat-icon purple">🏅</span><div><small>ترتيبك الحالي</small><strong id="rankCount">—</strong></div></article>
+      </section>
+
+      <section class="section" id="subjects">
+        <div class="section-heading"><div><span class="eyebrow">اختر ركنك</span><h2>المواد الدراسية</h2></div><span class="section-note">كل مادة لها دروسها واختباراتها</span></div>
+        <div class="subject-grid">
+          <article class="subject-card science-card">
+            <div class="subject-visual science-visual"><span>⚗️</span><i>✦</i><b>H₂O</b></div>
+            <div class="subject-info"><span class="tag tag-green">اكتشف · جرّب · افهم</span><h3>ركن العلوم</h3><p>مفاهيم علمية، ورسومات توضيحية، وتجارب ومحاكاة مرئية.</p><div class="subject-meta"><span>📖 <b id="scienceLessonsCount">0</b> دروس</span><span>❓ <b id="scienceQuestionsCount">0</b> سؤال</span></div><button class="primary-btn full" data-subject="science">دخول ركن العلوم ←</button></div>
+          </article>
+          <article class="subject-card studies-card">
+            <div class="subject-visual studies-visual"><span>🗺️</span><i>✦</i><b>EGYPT</b></div>
+            <div class="subject-info"><span class="tag tag-blue">افهم الماضي · اقرأ الخريطة</span><h3>ركن الدراسات الاجتماعية</h3><p>جغرافيا وتاريخ وخرائط ومفاهيم وتدريبات متنوعة.</p><div class="subject-meta"><span>📖 <b id="studiesLessonsCount">0</b> دروس</span><span>❓ <b id="studiesQuestionsCount">0</b> سؤال</span></div><button class="primary-btn full blue-btn" data-subject="studies">دخول ركن الدراسات ←</button></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="learningArea">
+        <div class="section-heading"><div><span class="eyebrow">مكتبة التعلم</span><h2 id="learningTitle">الدروس والتجارب</h2></div><button class="text-btn" id="backSubjects">عرض المادتين</button></div>
+        <div class="filters" id="lessonFilters">
+          <button class="filter active" data-filter="all">الكل</button><button class="filter" data-filter="lesson">الدروس</button><button class="filter" data-filter="experiment">التجارب والمحاكاة</button><button class="filter" data-filter="summary">الملخصات</button>
+        </div>
+        <div class="lesson-grid" id="lessonGrid"></div>
+      </section>
+
+      <section class="section two-columns">
+        <div class="panel" id="quizPanel">
+          <div class="section-heading compact"><div><span class="eyebrow">اختبر نفسك</span><h2>بنك الأسئلة</h2></div><span class="panel-icon">❓</span></div>
+          <p class="muted">تدريبات اختيار من متعدد، مع تصحيح فوري وشرح للإجابة.</p>
+          <div class="quiz-summary"><div><strong id="questionBankCount">0</strong><small>سؤال متاح</small></div><div><strong>15</strong><small>سؤال في الاختبار</small></div><div><strong>∞</strong><small>محاولات تدريب</small></div></div>
+          <button class="primary-btn full" id="startQuizBtn">ابدأ اختبارًا تدريبيًا</button>
+          <div id="quizBox" class="quiz-box hidden"></div>
+        </div>
+        <div class="panel" id="leaderboard">
+          <div class="section-heading compact"><div><span class="eyebrow">نافس بأخلاق</span><h2>ترتيب الطلاب</h2></div><span class="panel-icon">🏆</span></div>
+          <p class="muted">الترتيب التجريبي على هذا الجهاز. عند ربط قاعدة البيانات سيظهر ترتيب الطلاب الحقيقي.</p>
+          <div id="leaderboardList" class="leaderboard-list"></div>
+        </div>
+      </section>
+
+      <section class="section video-section">
+        <div class="video-banner"><div><span class="eyebrow">شاهد لتفهم أكثر</span><h2>التجارب العلمية بالفيديو</h2><p>روابط لمشاهدة محاكاة وتجارب تعليمية. يمكن للمدير استبدال روابط البحث بروابط فيديو محددة وموثوقة.</p></div><div class="video-symbol">▶</div></div>
+        <div class="video-grid" id="videoGrid"></div>
+      </section>
+
+      <section class="section admin-section" id="admin">
+        <div class="section-heading"><div><span class="eyebrow">إدارة المحتوى</span><h2>لوحة المدير التجريبية</h2></div><span class="tag tag-orange">للتجربة المحلية</span></div>
+        <div class="admin-grid">
+          <form class="admin-form" id="lessonForm">
+            <h3>إضافة درس أو تجربة</h3>
+            <label>اسم المحتوى<input id="newTitle" required placeholder="مثال: انعكاس الضوء"></label>
+            <label>المادة<select id="newSubject"><option value="science">العلوم</option><option value="studies">الدراسات الاجتماعية</option></select></label>
+            <label>النوع<select id="newType"><option value="lesson">درس</option><option value="experiment">تجربة / محاكاة</option><option value="summary">ملخص</option></select></label>
+            <label>وصف مختصر<textarea id="newDescription" rows="2" placeholder="اكتب وصفًا واضحًا..."></textarea></label>
+            <label>رابط الفيديو (اختياري)<input id="newVideo" type="url" placeholder="https://..."></label>
+            <button class="primary-btn full" type="submit">حفظ المحتوى</button>
+          </form>
+          <div class="admin-note"><h3>ماذا يمكن للمدير التحكم فيه؟</h3><ul><li>إضافة الدروس والتجارب والملخصات.</li><li>تعديل روابط الفيديو وحذف المحتوى.</li><li>إضافة أسئلة جديدة إلى بنك الأسئلة.</li><li>متابعة نتائج الطلاب والنقاط بعد ربط قاعدة البيانات.</li></ul><p class="notice">هذه نسخة أولية تعمل محليًا وتحفظ بياناتها على نفس المتصفح. لوحة المدير هنا تجريبية وليست محمية بتسجيل دخول بعد.</p></div>
+        </div>
+      </section>
+    </main>
+
+    <footer><div class="brand small-brand"><span class="brand-mark">E</span><b>EduWorld</b></div><p>منصة تعليمية للصف الثالث الإعدادي · الترم الأول 2026</p><small>تم التطوير بواسطة المبرمج معاذ محمد عبد النبي</small></footer>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
